@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi primera página web</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #183044; background: #eef4f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { background: #163e64; color: white; padding: 64px 24px; text-align: center; }
+    header p { color: #deebf7; }
+    h1 { font-size: clamp(2rem, 6vw, 3.4rem); margin: 12px 0; }
+    .etiqueta { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
+    main { width: min(900px, 100%); margin: auto; padding: 32px 20px; }
+    .tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    section { background: white; padding: 26px; border-radius: 16px; box-shadow: 0 6px 20px #1830440a; margin-bottom: 20px; }
+    .tarjetas section { margin-bottom: 0; }
+    h2 { margin-top: 0; font-size: 1.35rem; }
+    p, li { line-height: 1.7; }
+    button { font: inherit; font-weight: 650; background: #176454; color: white; border: 0; border-radius: 10px; padding: 14px 22px; cursor: pointer; }
+    button:hover { background: #104b3e; }
+    button:focus-visible { outline: 3px solid #e9a324; outline-offset: 4px; }
+    #mensaje { min-height: 3.4em; margin-bottom: 0; }
+    .actividad { margin-top: 24px; border-left: 5px solid #e9a324; }
+    code { background: #eef4f8; padding: 2px 6px; border-radius: 4px; }
+    footer { text-align: center; padding: 12px 20px 32px; color: #52677a; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="etiqueta">Proyecto de clase</span>
+    <!-- ACTIVIDAD: cambia el título por el nombre de tu proyecto. -->
+    <h1>Mi primera página web</h1>
+    <p>Un pequeño proyecto para aprender a publicar en Internet.</p>
+  </header>
+  <main>
+    <div class="tarjetas">
+      <section>
+        <h2>Hola, soy estudiante</h2>
+        <!-- ACTIVIDAD: escribe tu nombre de pila o un apodo y tus intereses. -->
+        <p>Estoy aprendiendo a crear páginas web. Me gusta la tecnología, la música y descubrir cosas nuevas.</p>
+      </section>
+      <section>
+        <h2>Lo que estoy aprendiendo</h2>
+        <ul>
+          <li>HTML para organizar el contenido.</li>
+          <li>CSS para darle estilo.</li>
+          <li>JavaScript para agregar interacción.</li>
+        </ul>
+      </section>
+    </div>
+    <section style="margin-top:24px">
+      <h2>Prueba el botón</h2>
+      <p>Haz clic para comprobar que la página tiene interacción.</p>
+      <button type="button" id="boton">Mostrar un saludo</button>
+      <p id="mensaje" role="status" aria-live="polite">Aquí aparecerá tu saludo.</p>
+    </section>
+    <section class="actividad">
+      <h2>Tu próximo desafío</h2>
+      <ol>
+        <li>Cambia el título y el texto de presentación en <code>index.html</code>.</li>
+        <li>Cambia el color del encabezado en el bloque <code>style</code>.</li>
+        <li>Publica tu página en GitHub Pages.</li>
+        <li>Comparte el enlace y comprueba que tus cambios se ven.</li>
+      </ol>
+    </section>
+  </main>
+  <footer>Hecho con HTML, CSS y JavaScript · Mi proyecto de prueba</footer>
+  <script>
+    const boton = document.getElementById('boton');
+    const mensaje = document.getElementById('mensaje');
+    let clics = 0;
+    boton.addEventListener('click', () => {
+      clics += 1;
+      mensaje.textContent = `¡Hola! Tu página funciona. Has pulsado el botón ${clics} ${clics === 1 ? 'vez' : 'veces'}.`;
+    });
+  </script>
+</body>
+</html>
